@@ -1,0 +1,104 @@
+[
+    {
+        "name": "Competitor 1",
+        "parent": "null",
+        "children": [
+            {
+                "name": "Product 1",
+                "parent": "Competitor 1",
+                "children": [
+                    {
+                        "name": "Offer 1",
+                        "parent": "Product 1"
+                    },
+                    {
+                        "name": "Offer 2",
+                        "parent": "Product 1"
+                    }
+                ]
+            },
+            {
+                "name": "Product 2",
+                "parent": "Competitor 1",
+                "children": [
+                    {
+                        "name": "Offer 1",
+                        "parent": "Product 2"
+                    },
+                    {
+                        "name": "Offer 2",
+                        "parent": "Product 2"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Competitor 2",
+        "parent": "null",
+        "children": [
+            {
+                "name": "Product 1",
+                "parent": "Top Level",
+                "children": [
+                    {
+                        "name": "Offer 1",
+                        "parent": "Level 2: A"
+                    },
+                    {
+                        "name": "Offer 2",
+                        "parent": "Level 2: A"
+                    }
+                ]
+            },
+            {
+                "name": "Product 2",
+                "parent": "Top Level",
+                "children": [
+                    {
+                        "name": "Offer 1",
+                        "parent": "Level 2: A"
+                    },
+                    {
+                        "name": "Offer 2",
+                        "parent": "Level 2: A"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Competitor 3",
+        "parent": "null",
+        "children": [
+            {
+                "name": "Product 1",
+                "parent": "Top Level",
+                "children": [
+                    {
+                        "name": "Offer 1",
+                        "parent": "Level 2: A"
+                    },
+                    {
+                        "name": "Offer 2",
+                        "parent": "Level 2: A"
+                    }
+                ]
+            },
+            {
+                "name": "Product 2",
+                "parent": "Top Level",
+                "children": [
+                    {
+                        "name": "Offer 1",
+                        "parent": "Level 2: A"
+                    },
+                    {
+                        "name": "Offer 2",
+                        "parent": "Level 2: A"
+                    }
+                ]
+            }
+        ]
+    }
+]

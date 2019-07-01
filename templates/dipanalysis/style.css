@@ -1,0 +1,402 @@
+body {
+  margin: 0;
+  background: #f8f8f8;
+  /* width: 1345px !important; */
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  width: 100%;
+  background: #e88d14;
+  padding: 12px;
+  display: flex;
+  box-shadow: 2px 2px 2px rgba(68, 68, 68, 0.6);
+}
+
+.head-text {
+  margin: 0;
+  font-weight: bold;
+  color: #fff;
+}
+
+.head {
+  margin: 0;
+  font-weight: bold;
+  color: #fff;
+  width: 80%;
+  text-align: center;
+}
+
+.user {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 60px;
+  top: 10px;
+  border-radius: 50px;
+}
+
+.notification {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 25px;
+  top: 12px;
+  border-radius: 50px;
+}
+
+.circle {
+  position: absolute;
+  right: 19px;
+  top: 10px;
+  width: 16px;
+  height: 16px;
+  background: red;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1.4;
+}
+
+.line {
+  fill: none;
+  stroke-width: 2px;
+}
+
+#india {
+  /*    fill: #00BCD4;
+    opacity: .7; */
+  stroke: #101010;
+  stroke-width: 0.6;
+}
+
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  padding: 0.5em;
+  font-size: 10px;
+  color: #222;
+  background: #fff;
+  border-radius: 2px;
+  pointer-events: none;
+  box-shadow: 0px 0px 2px 0px #a6a6a6;
+}
+
+.key path {
+  display: none;
+}
+
+.key line {
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.key text {
+  font-size: 10px;
+}
+
+.key rect {
+  stroke-width: 0.4;
+}
+#split-chart {
+  width: 360px;
+  height: 313px;
+  float: left;
+  position: absolute;
+  left: 35%;
+  text-align: center;
+}
+
+#line-chart {
+  position: relative;
+}
+
+/* .svg-wrap{
+      border:1px solid black;
+      box-shadow: 0px 1px 0px 1px solid black;
+  } */
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.focus circle {
+  fill: #f1f3f3;
+  stroke: #6f257f;
+  stroke-width: 5px;
+}
+
+.hover-line {
+  stroke: #6f257f;
+  stroke-width: 2px;
+  stroke-dasharray: 3, 3;
+}
+
+.east-map {
+  position: absolute;
+  right: 5px;
+  width: 35%;
+  display: none;
+}
+.east-india {
+  position: absolute;
+  display: none;
+  width: 34%;
+  top: 20em;
+}
+
+#overlay {
+  /* we set all of the properties for are overlay */
+  height: 80%;
+  width: 80%;
+  margin: 0 auto;
+  background: white;
+  color: black;
+  padding: 10px;
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  z-index: 1000;
+  /* display: none; */
+  /* CSS 3 */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+#overlay::-webkit-scrollbar {
+  /* width: 0px; */
+  background: transparent;
+}
+
+#mask {
+  /* create are mask */
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 500;
+  width: 100%;
+  height: 100%;
+  /* display: none; */
+}
+/* use :target to look for a link to the overlay then we find are mask */
+#overlay:target,
+#overlay:target + #mask {
+  display: block;
+  opacity: 1;
+}
+.close {
+  /* to make a nice looking pure CSS3 close button */
+  display: block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  /* background: red; */
+  color: black;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  font-size: 35px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -o-border-radius: 40px;
+  border-radius: 40px;
+}
+#open-overlay {
+  /* open the overlay */
+  padding: 10px;
+  background: grey;
+  color: white;
+  text-decoration: none;
+  display: none;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* Issue Report */
+
+.dip-text-wrap {
+  font-size: 1.5rem;
+  width: 100%;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+}
+#pieChart {
+  position: relative;
+}
+div#competitors-des {
+  display: flex;
+  width: 100%;
+  float: right;
+}
+div#competitors-chart {
+  width: 100%;
+  height: 32vh;
+  flex-flow: wrap;
+  background: #eeeeee50;
+}
+#pieChart svg {
+  position: absolute;
+  top: -40px;
+  right: 0;
+}
+
+.chart-header {
+  color: #000;
+  font-size: 1rem;
+  width: 55%;
+  padding: 0px 10px;
+  text-align: justify;
+  /* margin: auto; */
+  position: relative;
+  display: flex;
+  top: 2em;
+  align-items: center;
+  justify-content: center;
+}
+div#pieChart {
+  position: absolute;
+  right: -4em;
+  top: 3em;
+  z-index: 1111;
+}
+
+/*Tree Diagram*/
+
+.node {
+  cursor: pointer;
+}
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 3px;
+}
+
+.node text {
+  font: 12px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 2px;
+}
+.curly_brace {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+div#tree-diagram {
+  position: relative;
+  /* float: left; */
+  /* height: 50vh; */
+  display: flex;
+  width: 100%;
+  flex-flow: wrap;
+}
+.link_offer {
+  position: absolute;
+  top: 48%;
+  right: 36%;
+}
+.distributors-button {
+  font-weight: 700;
+  position: absolute;
+  background: #ff6e00f5;
+  color: #fff;
+  /* right: 15em; */
+  outline: 0;
+  top: 17em;
+  border: none;
+  height: 30px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.tree-details {
+  padding: 5px;
+}
+.offerDetails {
+  width: 32%;
+  position: absolute;
+  height: 100%;
+  right: 0px;
+  text-align: justify;
+  display: flex;
+  top: 0em;
+  flex-flow: wrap;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  background-color: lightgoldenrodyellow;
+}
+p.para-text {
+  position: relative;
+  width: 100%;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+p.para-text1 {
+  position: absolute;
+  top: -10px;
+  left: 2em;
+  font-size: 1rem;
+  color: #000;
+}
+.tree-diagram-div {
+  margin-top: 1em;
+}
+
+.piechart-header {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.barchart-header {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.splitchart-header {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.text-border {
+  height: 70px;
+  background: white;
+  box-shadow: 0px 0px 3px 0px #a5a1a1a8;
+  width: 77%;
+  font-weight: 100;
+  margin-top: 2%;
+}
+#revenue-chart {
+  text-align: center;
+}
+
+#linechart-header {
+  display: none;
+  position: absolute;
+  top: 14em;
+  left: 8em;
+}
+#input-value {
+  position: relative;
+  padding: 10px;
+  border-radius: 25px;
+  border: none;
+  top: 5px;
+}
+

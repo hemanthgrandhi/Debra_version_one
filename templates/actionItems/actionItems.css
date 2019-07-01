@@ -1,0 +1,367 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+.wrapper {
+  width: 100%;
+}
+
+.container1 {
+  width: 100%;
+  background: #f3ecec;
+  float: left;
+  height: 470px;
+  /* height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.container2 {
+  width: 100%;
+  background: #f4f4f4;
+  float: left;
+  height: 470px;
+  /* height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.container3 {
+  width: 100%;
+  background: lightblue;
+  float: left;
+  height: 470px;
+  /* height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.instruct-content {
+  width: 80%;
+  float: left;
+}
+
+.current-chart {
+  width: 56%;
+  float: left;
+  margin-left: 33px;
+}
+
+.action {
+  font-size: 20px;
+  width: 31%;
+  float: left;
+  text-align: center;
+}
+.action-item {
+  width: 20%;
+  float: left;
+}
+
+.actions{
+  width: 100%;
+  float: left;
+  text-align: center;
+  background: white;
+  height: 72vh;
+}
+
+.action-item1 {
+  width: 100%;
+  float: left;
+  text-align: center;
+  background: white;
+  height: 72vh;
+}
+.action-item2 {
+  width: 100%;
+  float: left;
+  text-align: center;
+  background: white;
+  height: 72vh;
+  display: none;
+}
+.action-item3 {
+  width: 100%;
+  float: left;
+  text-align: center;
+  background: white;
+  height: 72vh;
+  display: none;
+}
+.pending-img {
+  width: 16%;
+  margin-top: 43px;
+}
+.pending {
+  margin-top: 35px;
+}
+.next {
+  width: 16%;
+  float: right;
+  margin-right: 16px;
+  margin-top: 3em;
+}
+
+.actions h2 {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.head {
+  text-transform: capitalize;
+  float: left;
+  font-size: 20px;
+  margin-top: 16px;
+}
+
+button.offers {
+  margin: 0;
+  padding: 0;
+}
+.buttons {
+  width: 12%;
+  float: left;
+  cursor: pointer;
+}
+
+button.offer1 {
+  width: 110px;
+  background-color: #4caf50;
+  padding: 10px;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+button.offer2 {
+  width: 110px;
+  background-color: blue;
+  padding: 10px;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+button.offer3 {
+  width: 110px;
+  background-color: red;
+  padding: 10px;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.header {
+  width: 100%;
+  float: left;
+}
+
+p.one {
+  width: 2%;
+  float: left;
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+.button1 {
+  margin-top: 2em;
+  text-align: center;
+  outline: 0;
+  border: none;
+}
+.button2 {
+  margin-top: 5em;
+  outline: 0;
+  text-align: center;
+  border: none;
+}
+.button3 {
+  margin-top: 5em;
+  outline: 0;
+  text-align: center;
+  border: none;
+}
+.button1-cont {
+  width: 84%;
+  float: left;
+  display: block;
+}
+.button2-cont {
+  width: 84%;
+  float: left;
+  display: none;
+}
+.button3-cont {
+  width: 84%;
+  float: left;
+  display: none;
+}
+
+.content {
+  width: 20%;
+  float: left;
+  background: white;
+  margin-left: 36px;
+  margin-top: 3em;
+}
+
+.image {
+  width: 25%;
+  float: left;
+  margin-left: 20px;
+}
+
+.chart {
+  width: 50%;
+  float: left;
+}
+
+.chart1 {
+  width: 78%;
+  float: left;
+  padding: 15px;
+  background: #fff;
+}
+
+.one {
+  width: 18%;
+  float: left;
+}
+.content1 {
+  width: 84%;
+  line-height: 24px;
+  background: white;
+  padding: 5px;
+}
+.content1 p {
+  width: 100%;
+  font-size: 13px;
+  margin-left: 7px;
+}
+.image1 {
+  background: white;
+  margin-top: 10px;
+  width: 91%;
+}
+
+.image1 img {
+  width: 75%;
+  margin-left: 24px;
+  padding-top: 25px;
+  height: 147px;
+}
+.insturct {
+  width: 100%;
+  float: left;
+}
+
+.content p {
+  width: 90%;
+  text-align: left;
+  margin-left: 12px;
+  line-height: 27px;
+}
+.footer {
+  width: 100%;
+  float: left;
+  height: 60px;
+}
+#myChart1 {
+  display: block !important;
+  width: 735px !important;
+  height: 360px !important;
+}
+#myChart2 {
+  display: block !important;
+  width: 735px !important;
+  height: 360px !important;
+}
+#myChart3 {
+  display: block !important;
+  width: 735px !important;
+  height: 360px !important;
+}
+#myChart4 {
+  display: block !important;
+  width: 735px !important;
+  height: 360px !important;
+}
+#myChart5 {
+  display: block !important;
+    width: 693px !important;
+    height: 390px !important;
+}
+
+.footer img {
+  width: 3%;
+  float: right;
+  margin: 22px 28px;
+  cursor: pointer;
+}
+
+.notification {
+  width: 20%;
+  float: right;
+  position: relative;
+  transition: top 0.1s ease 0.1s;
+  -webkit-transition: margin-top 2s;
+  margin-top: -90px;
+}
+
+.notification p {
+  width: 90%;
+  background: white;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 0;
+}
+.content-view {
+  padding-left: 4em;
+}
+
+.map-view {
+  width: 32%;
+  float: left;
+}
+
+.content-view p {
+  width: 73%;
+  float: left;
+  background: white;
+  padding: 10px;
+  text-align: left;
+}
+
+.image-view {
+  width: 100%;
+  float: left;
+}
+
+.image-view img {
+  width: 67%;
+  margin-left: 4em;
+  height: 277px;
+}
+.chart-view {
+  width: 40%;
+  float: left;
+}

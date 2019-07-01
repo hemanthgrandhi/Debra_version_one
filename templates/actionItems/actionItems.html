@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Action Items</title>
+    <link rel="stylesheet" href="actionItems.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+</head>
+
+
+<body>
+    <div class="wrapper">
+        <div class="container1" id="content4">
+            <div class="instruct-content">
+                <div class="header">
+                    <p class="one">1)</p>
+                    <h1 class="head">digital market reach</h1>
+                    <h2 class="action">Suggested Actions</h2>
+                </div>
+                <div class="insturct">
+                    <div class="content">
+                        <p>Stock 25% of Products in Kolkata and let the orders be fulfilled by Amazon</p>
+                    </div>
+                    <div class="current-chart">
+                        <div>
+                            <canvas id="myChart1"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="action-item">
+                <div class="actions">
+                    <h2>Action Items</h2>
+                    <div class="action-item1" id="action-item1">
+
+                        <img class="pending-img" src="./pending.png">
+                        <p class="pending">pending</p>
+                        <img class="next" onclick="onProcess()" src="./right-arrow.svg">
+                    </div>
+                    <div class="action-item2" id="action-item2">
+                        <!-- <h2>Action Items</h2> -->
+                        <img class="pending-img" src="./processing.png">
+                        <p class="pending">processing</p>
+                    </div>
+                    <div class="action-item3" id="action-item3">
+                        <!-- <h2>Action Items</h2> -->
+                        <img class="pending-img" src="./Approved.png">
+                        <p class="pending">Assigned To Rahul</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container2" id="content2">
+            <div class="instruct-content">
+                <div class="header">
+                    <p class="one">2)</p>
+                    <h1 class="head">offers</h1>
+                </div>
+                <div class="buttons">
+                    <div class="button1" onclick="showContent1()">
+                        <button class="offer1">pack of 2</button>
+                    </div>
+                    <div class="button2" onclick="showContent2()">
+                        <button class="offer2">one + one</button>
+                    </div>
+                    <div class="button3" onclick="showContent3()">
+                        <button class="offer3" id="last">A+B</button>
+                    </div>
+                </div>
+
+                <div class="button1-cont" id="button1-cont">
+                    <div class="one">
+                        <div class="content1">
+                            <p>Based on your previous sales data, when you offered a similar offer, you expericed a 4% increase
+                                in sales, hence we recommend the 'Pack of 2' offer.</p>
+                        </div>
+                        <div class="image1">
+                            <img src="./buy1.png">
+                        </div>
+                    </div>
+
+                    <div class="chart1">
+                        <div>
+                            <canvas id="myChart2"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="button2-cont" id="button2-cont">
+                    <div class="one">
+                        <div class="content1">
+                            <p>From last year's analysis, when you offered the buy one get one offer, sales increases by 3%.
+                                Hence we recommend the 'Buy 1 get 1' at 10% lesser price.</p>
+                        </div>
+                        <div class="image1">
+                            <img src="./oneplus.PNG">
+                        </div>
+                    </div>
+
+                    <div class="chart1">
+                        <div>
+                            <canvas id="myChart3"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="button3-cont" id="button3-cont">
+                    <div class="one">
+                        <div class="content1">
+                            <p>Based on product data, sales of P3 are not upto the mark, whereas P2 sales are as estimated.
+                                It is recommended to sell P3 along with P2 at 15% less price.</p>
+                        </div>
+                        <div class="image1">
+                            <img src="./buy1.png">
+                        </div>
+                    </div>
+
+                    <div class="chart1">
+                        <div>
+                            <canvas id="myChart4"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="action-item">
+                <div class="actions">
+                    <h2>Action Items</h2>
+                    <div class="action-item1" id="action-item4">
+                        <img class="pending-img" src="./pending.png">
+                        <p class="pending">pending</p>
+                        <img class="next" onclick="onProcess2()" src="./right-arrow.svg">
+                    </div>
+                    <div class="action-item2" id="action-item5">
+                        <!-- <h2>Action Items</h2> -->
+                        <img class="pending-img" src="./processing.png">
+                        <p class="pending">processing</p>
+                    </div>
+                    <div class="action-item3" id="action-item6">
+                        <!-- <h2>Action Items</h2> -->
+                        <img class="pending-img" src="./Approved.png">
+                        <p class="pending">Assigned To Sameer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container3" id="content3">
+            <div class="instruct-content">
+                <div class="header">
+                    <p class="one">3)</p>
+                    <h1 class="head">Region wise development</h1>
+                </div>
+                <div class="insturct">
+                    <div class="map-view">
+                        <div class="content-view">
+                            <p>Sales of P3 are 2% lesser in North & South zones because competitor is selling the product at
+                                1% lesser price.
+                            </p>
+                        </div>
+                        <div class="image-view">
+                            <img src="./mapimage.png">
+                        </div>
+                    </div>
+                    <div class="chart-view">
+                        <div>
+                            <canvas id="myChart5"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="action-item">
+                <div class="actions">
+                    <h2>Action Items</h2>
+                    <div class="action-item1" id="action-item7">
+                        <!-- <h2>Action Items</h2> -->
+                        <img class="pending-img" src="./pending.png">
+                        <p class="pending">pending</p>
+                        <img class="next" onclick="onProcess3()" src="./right-arrow.svg">
+                    </div>
+
+                    <div class="action-item2" id="action-item8">
+                        <!-- <h2>Action Items</h2> -->
+                        <img class="pending-img" src="./processing.png">
+                        <p class="pending">processing</p>
+                    </div>
+                    <div class="action-item3" id="action-item9">
+                        <!-- <h2>Action Items</h2> -->
+                        <img class="pending-img" src="./Approved.png">
+                        <p class="pending">Assigned To Suresh</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+<script>
+
+    var popup = document.getElementById('notification')
+    var popup1 = document.getElementById('content2')
+
+
+    function showContent1() {
+        document.getElementById("button2-cont").style.display = "none"
+        document.getElementById("button3-cont").style.display = "none"
+        if (document.getElementById("button1-cont").style.display == "block") {
+            // document.getElementById("button1-cont").style.display = "none";
+        }
+        else {
+            document.getElementById("button1-cont").style.display = "block";
+        }
+    }
+    function showContent2() {
+        document.getElementById("button1-cont").style.display = "none"
+        document.getElementById("button3-cont").style.display = "none"
+        if (document.getElementById("button2-cont").style.display == "block") {
+            // document.getElementById("button2-cont").style.display = "none";
+        }
+        else {
+            document.getElementById("button2-cont").style.display = "block";
+        }
+    }
+    function showContent3() {
+        document.getElementById("button1-cont").style.display = "none"
+        document.getElementById("button2-cont").style.display = "none"
+        if (document.getElementById("button3-cont").style.display == "block") {
+            // document.getElementById("button3-cont").style.display = "none";
+        }
+        else {
+            document.getElementById("button3-cont").style.display = "block";
+        }
+    }
+
+    function onProcess() {
+        document.getElementById("action-item1").style.display = "none"
+        setTimeout(() => {
+            document.getElementById("action-item2").style.display = "block"
+            setTimeout(() => {
+                document.getElementById("action-item2").style.display = "none"
+                document.getElementById("action-item3").style.display = "block"
+            }, 2000);
+        }, 2000);
+        onProcess2();
+
+    }
+    function onProcess2() {
+        document.getElementById("action-item4").style.display = "none"
+        setTimeout(() => {
+            document.getElementById("action-item5").style.display = "block"
+            setTimeout(() => {
+                document.getElementById("action-item5").style.display = "none"
+                document.getElementById("action-item6").style.display = "block"
+            }, 2000);
+        }, 2000);
+        onProcess3();
+    }
+
+    function onProcess3() {
+        document.getElementById("action-item7").style.display = "none"
+        setTimeout(() => {
+            document.getElementById("action-item8").style.display = "block"
+            setTimeout(() => {
+                document.getElementById("action-item8").style.display = "none"
+                document.getElementById("action-item9").style.display = "block"
+            }, 2000);
+        }, 2000);
+    }
+
+    let dataOne = {
+        label: 'Current sale',
+        fill: false,
+        borderColor: 'green',
+        data: [13, 15, 12, 19, 20]
+    };
+    let dataTwo = {
+        label: 'Impact sale',
+        fill: false,
+        borderColor: 'red',
+        data: [13, 15, 12, 19, 20, 22]
+    };
+    var ctx = document.getElementById('myChart1').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ['Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept'],
+            datasets: [dataOne, dataTwo]
+        },
+
+        // Configuration options go here
+        options: {
+            elements: {
+                line: {
+                    tension: 0
+                }
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: false
+                    }
+                }],
+                yAxes: [{
+                    gridLines: {
+                        display: false
+                    }
+                }]
+            }
+        }
+    });
+
+    let contentOne = {
+        label: 'Current sale',
+        fill: false,
+        borderColor: 'green',
+        data: [12, 14, 10, 15, 20]
+    };
+    let contentTwo = {
+        label: 'Impact sale',
+        fill: false,
+        borderColor: 'red',
+        data: [12, 14, 10, 15, 20, 23]
+    };
+
+    var ctx = document.getElementById('myChart2').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ['Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept'],
+            datasets: [contentOne, contentTwo]
+        },
+
+        // Configuration options go here
+        options: {
+            elements: {
+                line: {
+                    tension: 0
+                }
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: false
+                    }
+                }],
+                yAxes: [{
+                    gridLines: {
+                        display: false
+                    }
+                }]
+            }
+        }
+    });
+
+    let currentOne = {
+        label: 'Current sale',
+        fill: false,
+        borderColor: 'green',
+        data: [10, 14, 9, 18, 20]
+    };
+    let currentTwo = {
+        label: 'Impact sale',
+        fill: false,
+        borderColor: 'red',
+        data: [10, 14, 9, 18, 20, 23]
+    };
+    var ctx = document.getElementById('myChart3').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ['Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept'],
+            datasets: [currentOne, currentTwo]
+        },
+
+        // Configuration options go here
+        options: {
+            elements: {
+                line: {
+                    tension: 0
+                }
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: false
+                    }
+                }],
+                yAxes: [{
+                    gridLines: {
+                        display: false
+                    }
+                }]
+            }
+        }
+    });
+
+    let impactOne = {
+        label: 'Current sale',
+        fill: false,
+        borderColor: 'green',
+        data: [13, 15, 12, 19, 20]
+    };
+    let impactTwo = {
+        label: 'Impact sale',
+        fill: false,
+        borderColor: 'red',
+        data: [13, 15, 12, 19, 20, 23]
+    };
+
+
+    var ctx = document.getElementById('myChart4').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ['Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept'],
+            datasets: [impactOne, impactTwo]
+        },
+
+        // Configuration options go here
+        options: {
+            elements: {
+                line: {
+                    tension: 0
+                }
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: false
+                    }
+                }],
+                yAxes: [{
+                    gridLines: {
+                        display: false
+                    }
+                }]
+            }
+        }
+    });
+
+    let regionOne = {
+        label: 'Current sale',
+        fill: false,
+        borderColor: 'green',
+        data: [13, 15, 12, 19, 20]
+    };
+    let regionTwo = {
+        label: 'Impact sale',
+        fill: false,
+        borderColor: 'red',
+        data: [13, 15, 12, 19, 20, 23]
+    };
+
+    var ctx = document.getElementById('myChart5').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ['Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept'],
+            datasets: [regionOne, regionTwo]
+        },
+
+        // Configuration options go here
+        options: {
+            elements: {
+                line: {
+                    tension: 0
+                }
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: false
+                    }
+                }],
+                yAxes: [{
+                    gridLines: {
+                        display: false
+                    }
+                }]
+            }
+        }
+    });
+
+
+</script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-database.js"></script>
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyB14ay9YlrLXLJ5xX5LhX2Vd3_jAIN_-Uo",
+        authDomain: "debraversion1-vrjlpp.firebaseapp.com",
+        databaseURL: "https://debraversion1-vrjlpp.firebaseio.com",
+        projectId: "debraversion1-vrjlpp",
+        storageBucket: "debraversion1-vrjlpp.appspot.com",
+        messagingSenderId: "971719653703",
+        appId: "1:971719653703:web:5d1fbc039eba8ef9"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    var db = firebase.database();
+    var ref = db.ref("data")
+    ref.on("value", function (snapshot) {
+        var inter = snapshot.val();
+        console.log(inter.text)
+        if (inter.text == "assign the action items") {
+            onProcess();
+        }
+        // d3command = inter.text;
+        // console.log("command", inter.text)
+        // io.emit('d3command', inter.text)
+    })
+
+</script>
+
+</html>
