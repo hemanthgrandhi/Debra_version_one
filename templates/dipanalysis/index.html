@@ -1,499 +1,868 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Project</title>
 
-<head>
-  <title>Dip Analysis</title>
+    <!--  Styles  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link type="text/css" rel="stylesheet" href="style.css" />
+  </head>
 
-  <!--  Styles  -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link type="text/css" rel="stylesheet" href="style.css" />
-</head>
-
-<body>
-  <div class="header">
-    <h2 class="head-text">ProdCo</h2>
-    <h2 class="head">Product-B score Card</h2>
-    <div>
-      <img class="user" src="./images/client.png" />
+  <body>
+    <div class="header">
+      <h2 class="head-text">ProdCo</h2>
+      <h2 class="head">Product-B score Card</h2>
+      <div>
+        <img class="user" src="./images/client.png" />
+      </div>
+      <div>
+        <img class="notification" src="./images/Notification.png" />
+        <span class="circle">1</span>
+      </div>
     </div>
-    <div>
-      <img class="notification" src="./images/Notification.png" />
-      <span class="circle">1</span>
+    <div class="input-wrap">
+      <!--<input type="text" id="input-value" x-webkit-speech />
+      <button onclick="onSubmit()">submit</button>
+      <button onclick="Showdistributor1('Eastindia')">d1</button>
+      <button onclick="Showdistributor2('Westindia')">d2</button>-->
     </div>
-  </div>
-  <div class="input-wrap">
-    <input type="text" id="input-value" x-webkit-speech />
-    <button onclick="onSubmit()">submit</button>
-  </div>
 
-  <!-- overlay -->
+    <!-- overlay -->
 
-  <!-- <a href="#overlay" id="open-overlay">Show Issues</a> -->
-  <div id="overlay">
-    <a href="#" class="close" onclick="closePopup()">&times;</a>
-    <iframe src="pie-tree.html" style="border: none; width: 100% !important;height: 500px;"></iframe>
+    <!-- <a href="#overlay" id="open-overlay">Show Issues</a> -->
+    <div id="overlay">
+      <a href="#" class="close" onclick="closePopup()">&times;</a>
+      <iframe
+        src="pie-tree.html"
+        style="border: none; width: 100% !important;height: 500px;"
+      ></iframe>
+    </div>
+    <div id="mask" onclick="document.location='#';"></div>
 
-  </div>
-  <div id="mask" onclick="document.location='#';"></div>
-  <div id="wrapper"></div>
-  <div id="line-chart">
-    <h3 id="linechart-header">Overall Sales Performance</h3>
-    <img id="line-direction" src="./images/east.PNG" class="east-india" />
-    <img id="east_map" src="./images/East-India-Distributor.png" class="east-map" />
-  </div>
-  <div id="india-chart"></div>
-</body>
-<script>
-  window.onload = function (event) {
-    let insideOVerlay = document.getElementById("overlay").style.display = "block";
-    // document.getElementById("tree-diagram").style.display = "block";
-    let outsideOverlay = document.getElementById("mask").style.display = "block";
-    document.getElementById("mask").addEventListener("click", function () {
-      document.getElementById("overlay").style.display = "none";
-      document.getElementById("mask").style.display = "none";
-    });
-
-  }
-  function closePopup() {
-    document.getElementById("overlay").style.display = "none";
-    document.getElementById("mask").style.display = "none";
-  }
-</script>
-<script src="topojson.v1.min.js"></script>
-
-<script type="text/javascript" src="d3.geo.min.js"></script>
-<script src="d3.v4.min.js"></script>
-<script src="topojson.v1.min.js"></script>
-<script src="d3-scale-chromatic.v1.min.js"></script>
-
-<script type="text/javascript" src="d3.geo.min.js"></script>
-<script type="text/javascript">
-  var w = window.innerWidth / 2.5;
-  var h = window.innerHeight - 10;
-  var proj = d3.geo.mercator();
-  var path = d3.geo.path().projection(proj);
-  var t = proj.translate(); // the projection's default translation
-  var s = proj.scale(); // the projection's default scale
-
-  var buckets = 9,
-    colors = [
-      "#ffffd9",
-      "#edf8b1",
-      "#c7e9b4",
-      "#7fcdbb",
-      "#41b6c4",
-      "#1d91c0",
-      "#225ea8",
-      "#253494",
-      "#081d58"
-    ]; // alternatively colorbrewer.YlGnBu[9]
-
-
-  function initialize() {
-    proj.scale(6700);
-    proj.translate([-1240, 720]);
-  }
-</script>
-
-<script type="text/javascript">
-  //Device width and height mentioned
-  var deviceWidth = window.innerWidth,
-    deviceHeight = window.innerHeight,
-    resData;
-  //Body style added
-  d3.select("body").attr(
-    "style",
-    `width:${deviceWidth}px;height:${deviceHeight}px;`
-  );
-  //left section chart
-  var leftSection = d3
-    .select("#wrapper")
-    .append("div")
-    .attr(
-      "style",
-      `width:${deviceWidth - deviceWidth / 2.5}px;height:${deviceHeight /
-      2}px;float:left;`
-    )
-    .attr("id", "left-section")
-  //right section map
-  var rightSection = d3
-    .select("#wrapper")
-    .append("div")
-    .attr(
-      "style",
-      `width:${deviceWidth / 2.5}px;height:${deviceHeight /
-      2}px;float:left;`
-    )
-    .attr("id", "right-section");
-  //agent performance json
-  d3.json("agent-performance.json", function (res) {
-    resData = res;
-  });
-  //on submit function
-  function onSubmit(value) {
-    // var value = document.getElementById("input-value");
-    if (value === "distributor1") {
-      resData.map(item => {
-        var total = 0;
-        item.products.map(product => {
-          total = total + product.revenue;
+    <script>
+      window.onload = function(event) {
+        let insideOVerlay = (document.getElementById("overlay").style.display =
+          "block");
+        // document.getElementById("tree-diagram").style.display = "block";
+        let outsideOverlay = (document.getElementById("mask").style.display =
+          "block");
+        document.getElementById("mask").addEventListener("click", function() {
+          document.getElementById("overlay").style.display = "none";
+          document.getElementById("mask").style.display = "none";
         });
-        data[item.agent_name] = total;
-      });
-    } else if (value === "distributor2") {
-      resData.map(item => {
-        var total = 0;
-        item.products.map(product => {
-          total = total + product.revenue;
-        });
-        data[item.agent_name] = total;
-      });
-    }
-    console.log("value", value.value);
-    var objKeys = [];
-    resData["0"]["products"].map(item => {
-      objKeys.push(item.name);
-    });
-    var agents = ["all"];
-    resData.map(item => {
-      agents.push(item.agent_name);
-    });
-    console.log(objKeys, agents);
-    var agentBoolean = filterItems(agents, value["value"]);
-    var productBoolean = filterItems(objKeys, value["value"]);
-    if (agentBoolean != undefined || productBoolean != undefined) {
-      d3.selectAll(".svg-wrap").remove();
-      var data = {};
-      if (value["value"].toLowerCase() == "all") {
-        resData.map(item => {
-          var total = 0;
-          item.products.map(product => {
-            total = total + product.revenue;
-          });
-          data[item.agent_name] = total;
-        });
-      } else {
-        resData.map(item => {
-          var total = 0;
-          item.products.map(product => {
-            if (productBoolean != undefined) {
-              if (
-                value["value"].toLowerCase() == product.name.toLowerCase()
-              ) {
-                total = total + product.revenue;
-              }
-            } else {
-              total = total + product.revenue;
-            }
-          });
-          data[item.agent_name.toLowerCase()] = total;
-        });
+      };
+      function closePopup() {
+        document.getElementById("overlay").style.display = "none";
+        document.getElementById("mask").style.display = "none";
       }
-      var dateLineBar =
-        resData[
-        agents.findIndex(
-          item => item.toLowerCase() === value.value.toLowerCase()
-        ) - 1
-        ];
-      onRevenueChart(data, value.value);
-      // lineChart(dateLineBar);
-      barChart(dateLineBar);
-      // locationMap(dateLineBar);
-      changeMapImage(value["value"].toLowerCase());
-      changeLineChart(value["value"].toLowerCase())
-    }
-    d3.select("#open-overlay").attr("style", `display:inline-block`);
-  }
+    </script>
+    <div id="wrapper"></div>
+    <div id="line-chart">
+      <h3 id="linechart-header">Overall Sales Performance</h3>
+      <img id="line-direction" src="./images/east.PNG" class="east-india" />
+      <img
+        id="east_map"
+        src="./images/East-India-Distributor.png"
+        class="east-map"
+      />
+    </div>
+    <div id="india-chart">
+      <!-- <script src="d3.v3.min.js"></sc  ript> -->
+      <script src="topojson.v1.min.js"></script>
 
-  function changeMapImage(name) {
-    var userImage = {
-      eastindia: "./images/East-India-Distributor.png",
-      westindia: "./images/West-India-Distributor.png"
-    };
-    var mapEl = document.getElementById("east_map");
-    mapEl.style.display = "block";
-    mapEl.src = userImage[name] || "/images/East-India-Distributor.png";
-  }
+      <script type="text/javascript" src="d3.geo.min.js"></script>
 
-  function changeLineChart(name) {
-    var userImage = {
-      eastindia: "./images/east.PNG",
-      westindia: "./images/west.PNG"
-    };
-    var mapEl = document.getElementById("line-direction");
-    document.getElementById("linechart-header").style.display = "block"
-    mapEl.style.display = "block";
-    mapEl.src = userImage[name] || "./images/east.PNG";
-  }
+      <script type="text/javascript">
+        var w = window.innerWidth / 2.5;
+        var h = window.innerHeight - 10;
+        var proj = d3.geo.mercator();
+        var path = d3.geo.path().projection(proj);
+        var t = proj.translate(); // the projection's default translation
+        var s = proj.scale(); // the projection's default scale
 
-  function filterItems(arr, query) {
-    return arr.find(item => item.toLowerCase() === query.toLowerCase());
-  }
+        var buckets = 9,
+          colors = [
+            "#ffffd9",
+            "#edf8b1",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#1d91c0",
+            "#225ea8",
+            "#253494",
+            "#081d58"
+          ]; // alternatively colorbrewer.YlGnBu[9]
 
-  function onRevenueChart(data, selectedPerson) {
-    console.log(data);
-    d3.select("#split-chart").remove();
-    // set the dimensions and margins of the graph
-    var width = leftSection._groups["0"]["0"].clientWidth / 2 - 0;
-    height = leftSection._groups["0"]["0"].clientHeight;
-    margin = 40;
+        // var map = d3
+        //   .select("#india-chart")
+        //   .attr(
+        //     "style",
+        //     `width:${w}px;height:${h}px;position:absolute;right:0;top:40px;opacity: 0;`
+        //   )
+        //   .append("svg:svg")
+        //   .attr("width", w)
+        //   .attr("height", h)
 
-    // The radius of the pieplot is half the width or half the height (smallest one). I substract a bit of margin.
-    var radius = Math.min(width, height) / 2 - margin;
+        //   //.call(d3.behavior.zoom().on("zoom", redraw))
+        //   .call(initialize);
 
-    // append the svg object to the div called 'my_dataviz'
+        // var india = map.append("svg:g").attr("id", "india");
 
-    var svgWrap = d3
-      .select("#left-section")
-      .append("svg")
-      .attr("class", "svg-wrap")
-      .attr("width", 460)
-      .attr("height", height)
-      .attr("style", "float:left;");
-    svgWrap.append("g")
-      .attr("transform", "translate(" + 50 + "," + 50 + ")").append("text").attr("x", 50).attr("y", 5)
-      .attr("class", "piechart-header")
-      .text("Distributor Breakdown in India")
-    var svg = svgWrap.append("g")
-      .attr("transform", "translate(" + 230 + "," + 170 + ")");
+        // var div = d3
+        //   .select("body")
+        //   .append("div")
+        //   .attr("class", "tooltip")
+        //   .style("opacity", 0);
 
-    var splitChart = d3
-      .select("#left-section")
-      .append("div")
-      .attr("style", `width: 450px;height:${height}px;float:left;`)
-      .attr("id", "split-chart")
+        // d3.json("states.json", function (json) {
+        //   var maxTotal = d3.max(json.features, function (d) {
+        //     return d.total;
+        //   });
 
-    var performance = splitChart
-      .append("g")
-      .attr("transform", "translate(" + 50 + "," + 50 + ")");
-    performance
-      .append("text").attr("x", 50).attr("y", 5)
-      .attr("class", "splitchart-header")
-      .text("Total Units Sales Archieved")
-    performance.append("svg")
-      .attr("class", "svg-wrap text-border")
-      .attr("width", width)
-      .attr("height", height / 3)
-      .append("text")
-      .attr("x", (width - 160) / 2)
-      .attr("y", 53)
-      .attr("style", "font-size:50px;text-align:center;")
-      .text(data[selectedPerson]);
+        //   var colorScale = d3.scale
+        //     .quantile()
+        //     .domain(
+        //       d3.range(buckets).map(function (d) {
+        //         return (d / buckets) * maxTotal;
+        //       })
+        //     )
+        //     .range(colors);
 
-    var barChart = splitChart
-      .append("div")
-      .attr("id", "revenue-chart")
-      .attr("width", width)
-      .attr("height", height / 2)
-    barChart.append("g")
-      .attr("transform", "translate(" + 50 + "," + 50 + ")").append("text").attr("x", 50).attr("y", 5)
-      .attr("class", "barchart-header")
-      .text("Revenue for Breakdown")
-      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+        //   var y = d3.scale
+        //     .sqrt()
+        //     .domain([0, 10000])
+        //     .range([0, 300]);
 
-    // Create dummy data
-    // set the color scale
-    var color = d3
-      .scaleOrdinal()
-      .domain(Object.keys(data))
-      .range(d3.schemeDark2);
+        //   var yAxis = d3.svg
+        //     .axis()
+        //     .scale(y)
+        //     .tickValues(colorScale.domain())
+        //     .orient("right");
 
-    // Compute the position of each group on the pie:
-    var pie = d3
-      .pie()
-      .sort(null) // Do not sort group by size
-      .value(function (d) {
-        return d.value;
-      });
-    var data_ready = pie(d3.entries(data));
+        //   india
+        //     .selectAll("path")
+        //     .data(json.features)
+        //     .enter()
+        //     .append("path")
+        //     .attr("d", path)
+        //     .style("fill", colors[0])
+        //     .style("opacity", 0.5)
+        //     .attr("class", function (d) {
+        //       console.log("state", d);
+        //       var name = d.id.toLowerCase();
+        //       var nameSplit = name.split(" ");
+        //       var id = "";
+        //       nameSplit.map(item => {
+        //         id = id + item;
+        //       });
+        //       return `state ${id}`;
+        //     })
+        //     .on("click", function (d, i) {
+        //       d3.select(this)
+        //         .transition()
+        //         .duration(300)
+        //         .style("opacity", 1);
+        //       div
+        //         .transition()
+        //         .duration(300)
+        //         .style("opacity", 1);
+        //       div
+        //         .text(d.id + " : " + d.total)
+        //         .style("left", d3.event.pageX + "px")
+        //         .style("top", d3.event.pageY - 30 + "px");
+        //     })
 
-    // The arc generator
-    var arc = d3
-      .arc()
-      .innerRadius(radius * 0.5) // This is the size of the donut hole
-      .outerRadius(radius * 0.8);
+        //     .on("mouseleave", function (d, i) {
+        //       d3.select(this)
+        //         .transition()
+        //         .duration(300)
+        //         .style("opacity", 0.5);
+        //       div
+        //         .transition()
+        //         .duration(300)
+        //         .style("opacity", 0);
+        //     })
+        //     .on("mouseenter", function (d, i) {
+        //       d3.select(this)
+        //         .transition()
+        //         .duration(300)
+        //         .style("opacity", 0.5);
+        //       div
+        //         .transition()
+        //         .duration(300)
+        //         .style("opacity", 0);
+        //     });
 
-    // Another arc that won't be drawn. Just for labels positionning
-    var outerArc = d3
-      .arc()
-      .innerRadius(radius * 0.9)
-      .outerRadius(radius * 0.9);
+        //   india
+        //     .selectAll("path")
+        //     .transition()
+        //     .duration(1000)
+        //     .style("fill", function (d) {
+        //       return colorScale(d.total);
+        //     });
 
-    // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
-    svg
-      .selectAll("allSlices")
-      .data(data_ready)
-      .enter()
-      .append("path")
-      .attr("d", arc)
-      .attr("fill", function (d) {
-        return color(d.data.key);
-      })
-      .attr("stroke", "white")
-      .style("stroke-width", "2px")
-      .style("opacity", 0.7);
+        //   //Adding legend for our Choropleth
+        // });
 
-    // Add the polylines between chart and labels:
-    svg
-      .selectAll("allPolylines")
-      .data(data_ready)
-      .enter()
-      .append("polyline")
-      .attr("stroke", "black")
-      .style("fill", "none")
-      .attr("stroke-width", 1)
-      .attr("points", function (d) {
-        var posA = arc.centroid(d); // line insertion in the slice
-        var posB = outerArc.centroid(d); // line break: we use the other arc generator that has been built only for that
-        var posC = outerArc.centroid(d); // Label position = almost the same as posB
-        var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2; // we need the angle to see if the X position will be at the extreme right or extreme left
-        posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1); // multiply by 1 or -1 to put it on the right or on the left
-        return [posA, posB, posC];
-      });
+        function initialize() {
+          proj.scale(6700);
+          proj.translate([-1240, 720]);
+        }
+      </script>
+    </div>
+    <script src="d3.v4.min.js"></script>
+    <script src="topojson.v1.min.js"></script>
+    <script src="d3-scale-chromatic.v1.min.js"></script>
 
-    // Add the polylines between chart and labels:
-    svg
-      .selectAll("allLabels")
-      .data(data_ready)
-      .enter()
-      .append("text")
-      .text(function (d) {
-        return d.data.key.toUpperCase();
-      })
-      .attr("transform", function (d) {
-        var pos = outerArc.centroid(d);
-        var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
-        pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
-        return "translate(" + pos + ")";
-      })
-      .style("text-anchor", function (d) {
-        var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
-        return midangle < Math.PI ? "start" : "end";
-      });
-  }
+    <script type="text/javascript" src="d3.geo.min.js"></script>
 
-  function barChart(pieData) {
-    console.log(pieData);
-    var data = pieData["products"];
-    // set the dimensions and margins of the graph
-    var margin = {
-      top: 20,
-      right: 20,
-      bottom: 30,
-      left: 40
-    },
-      width =
-        leftSection._groups["0"]["0"].clientWidth / 2 -
-        margin.left -
-        margin.right,
-      height =
-        leftSection._groups["0"]["0"].clientHeight -
-        leftSection._groups["0"]["0"].clientHeight / 3 -
-        margin.top -
-        margin.bottom;
-
-    // set the ranges
-    var x = d3
-      .scaleBand()
-      .range([0, width])
-      .padding(0.1);
-    var y = d3.scaleLinear().range([height, 0]);
-
-    // append the svg object to the body of the page
-    // append a 'group' element to 'svg'
-    // moves the 'group' element to the top left margin
-    var svg = d3
-      .select("#revenue-chart")
-      .append("svg")
-      .attr("class", "svg-wrap")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-      .attr(
-        "transform",
-        "translate(" + margin.left + "," + margin.top + ")"
+    <script type="text/javascript">
+      //Device width and height mentioned
+      var deviceWidth = window.innerWidth,
+        deviceHeight = window.innerHeight,
+        resData;
+      //Body style added
+      d3.select("body").attr(
+        "style",
+        `width:${deviceWidth}px;height:${deviceHeight}px;`
       );
-
-    // Scale the range of the data in the domains
-    x.domain(
-      data.map(function (d) {
-        return d.name;
-      })
-    );
-    y.domain([
-      0,
-      d3.max(data, function (d) {
-        return d.revenue;
-      })
-    ]);
-
-    // append the rectangles for the bar chart
-    svg
-      .selectAll(".bar")
-      .data(data)
-      .enter()
-      .append("rect")
-      .attr("class", "bar")
-      .attr("fill", function (d) {
-        return d.fill;
-      })
-      .attr("x", function (d) {
-        return x(d.name) + x.bandwidth() / 4;
-      })
-      .attr("width", x.bandwidth() / 2)
-      .attr("y", function (d) {
-        return y(d.revenue);
-      })
-      .attr("height", function (d) {
-        return height - y(d.revenue);
+      //left section chart
+      var leftSection = d3
+        .select("#wrapper")
+        .append("div")
+        .attr(
+          "style",
+          `width:${deviceWidth - deviceWidth / 2.5}px;height:${deviceHeight /
+            2}px;float:left;`
+        )
+        .attr("id", "left-section");
+      //right section map
+      var rightSection = d3
+        .select("#wrapper")
+        .append("div")
+        .attr(
+          "style",
+          `width:${deviceWidth / 2.5}px;height:${deviceHeight /
+            2}px;float:left;`
+        )
+        .attr("id", "right-section");
+      //agent performance json
+      d3.json("agent-performance.json", function(res) {
+        resData = res;
       });
+      //on submit function
+      function onSubmit(company) {
+        var value = document.getElementById("input-value");
+        var objKeys = [];
+        resData["0"]["products"].map(item => {
+          objKeys.push(item.name);
+        });
+        var agents = ["all"];
+        resData.map(item => {
+          agents.push(item.agent_name);
+        });
+        console.log(objKeys, agents);
+        var agentBoolean = filterItems(agents, value["value"]);
+        var productBoolean = filterItems(objKeys, value["value"]);
+        if (agentBoolean != undefined || productBoolean != undefined) {
+          d3.selectAll(".svg-wrap").remove();
+          var data = [];
+          if (value["value"].toLowerCase() == "all") {
+            resData.map(item => {
+              var total = 0;
+              item.products.map(product => {
+                total = total + product.revenue;
+              });
+              data[item.agent_name] = total;
+            });
+          } else {
+            resData.map(item => {
+              var total = 0;
+              item.products.map(product => {
+                if (productBoolean != undefined) {
+                  if (
+                    value["value"].toLowerCase() == product.name.toLowerCase()
+                  ) {
+                    total = total + product.revenue;
+                  }
+                } else {
+                  total = total + product.revenue;
+                }
+              });
+              data[item.agent_name.toLowerCase()] = total;
+            });
+          }
+          var dateLineBar =
+            resData[
+              agents.findIndex(
+                item => item.toLowerCase() === value.value.toLowerCase()
+              ) - 1
+            ];
+          debugger;
+          onRevenueChart(data, value.value);
+          // lineChart(dateLineBar);
+          barChart(dateLineBar);
+          // locationMap(dateLineBar);
+          changeMapImage(value["value"].toLowerCase());
+          changeLineChart(value["value"].toLowerCase());
+        }
+        d3.select("#open-overlay").attr("style", `display:inline-block`);
+      }
 
-    // add the x Axis
-    svg
-      .append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
+      function Showdistributor1(company) {
+        var value = company;
+        var objKeys = [];
+        resData["0"]["products"].map(item => {
+          objKeys.push(item.name);
+        });
+        var agents = ["all"];
+        resData.map(item => {
+          agents.push(item.agent_name);
+        });
+        console.log(objKeys, agents);
+        var agentBoolean = filterItems(agents, value);
+        var productBoolean = filterItems(objKeys, value);
+        if (agentBoolean != undefined || productBoolean != undefined) {
+          d3.selectAll(".svg-wrap").remove();
+          var data = {};
+          if (value == "all") {
+            resData.map(item => {
+              var total = 0;
+              item.products.map(product => {
+                total = total + product.revenue;
+              });
+              data[item.agent_name] = total;
+            });
+          } else {
+            resData.map(item => {
+              var total = 0;
+              item.products.map(product => {
+                if (productBoolean != undefined) {
+                  if (value == product.name) {
+                    total = total + product.revenue;
+                  }
+                } else {
+                  total = total + product.revenue;
+                }
+              });
+              data[item.agent_name] = total;
+            });
+          }
+          var dateLineBar =
+            resData[agents.findIndex(item => item === value) - 1];
+          onRevenueChart(data, value);
+          // lineChart(dateLineBar);
+          barChart(dateLineBar);
+          // locationMap(dateLineBar);
+          changeMapImage(value);
+          changeLineChart(value);
+        }
+        d3.select("#open-overlay").attr("style", `display:inline-block`);
+      }
 
-    // add the y Axis
-    svg.append("g").call(d3.axisLeft(y));
-  }
-</script>
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+      function Showdistributor2(company) {
+        var value = company;
+        var objKeys = [];
+        resData["0"]["products"].map(item => {
+          objKeys.push(item.name);
+        });
+        var agents = ["all"];
+        resData.map(item => {
+          agents.push(item.agent_name);
+        });
+        console.log(objKeys, agents);
+        var agentBoolean = filterItems(agents, value);
+        var productBoolean = filterItems(objKeys, value);
+        if (agentBoolean != undefined || productBoolean != undefined) {
+          d3.selectAll(".svg-wrap").remove();
+          var data = {};
+          if (value == "all") {
+            resData.map(item => {
+              var total = 0;
+              item.products.map(product => {
+                total = total + product.revenue;
+              });
+              data[item.agent_name] = total;
+            });
+          } else {
+            resData.map(item => {
+              var total = 0;
+              item.products.map(product => {
+                if (productBoolean != undefined) {
+                  if (value == product.name) {
+                    total = total + product.revenue;
+                  }
+                } else {
+                  total = total + product.revenue;
+                }
+              });
+              data[item.agent_name] = total;
+            });
+          }
+          var dateLineBar =
+            resData[agents.findIndex(item => item === value) - 1];
+          onRevenueChart(data, value);
+          // lineChart(dateLineBar);
+          barChart(dateLineBar);
+          // locationMap(dateLineBar);
+          changeMapImage(value);
+          changeLineChart(value);
+        }
+        d3.select("#open-overlay").attr("style", `display:inline-block`);
+      }
 
-<!-- Add Firebase products that you want to use -->
-<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-database.js"></script>
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyB14ay9YlrLXLJ5xX5LhX2Vd3_jAIN_-Uo",
-    authDomain: "debraversion1-vrjlpp.firebaseapp.com",
-    databaseURL: "https://debraversion1-vrjlpp.firebaseio.com",
-    projectId: "debraversion1-vrjlpp",
-    storageBucket: "debraversion1-vrjlpp.appspot.com",
-    messagingSenderId: "971719653703",
-    appId: "1:971719653703:web:de0812b596fb41fd"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+      function changeMapImage(name) {
+        var userImage = {
+          Eastindia: "./images/East-India-Distributor.png",
+          Westindia: "./images/West-India-Distributor.png"
+        };
+        var mapEl = document.getElementById("east_map");
+        mapEl.style.display = "block";
+        mapEl.src = userImage[name] || "./images/East-India-Distributor.png";
+      }
 
-  var ref = firebase.database().ref();
+      function changeLineChart(name) {
+        var userImage = {
+          Eastindia: "./images/east.PNG",
+          Westindia: "./images/west.PNG"
+        };
+        var mapEl = document.getElementById("line-direction");
+        document.getElementById("linechart-header").style.display = "block";
+        mapEl.style.display = "block";
+        mapEl.src = userImage[name] || "./images/east.PNG";
+      }
 
+      function filterItems(arr, query) {
+        return arr.find(item => item === query);
+      }
 
-  var db = firebase.database();
-  var ref = db.ref("data")
-  ref.on("value", function (snapshot) {
-    var inter = snapshot.val();
-    console.log(inter.text)
-    if (inter.text == "show me distributor 1 analysis") {
-      onSubmit("distributor1");
-    }
-    else if (inter.text == "show me distributor 2 analysis") {
-      onSubmit("distributor2");
-    }
-  })
-</script>
+      function onRevenueChart(data, selectedPerson) {
+        console.log(data);
+        d3.select("#split-chart").remove();
+        // set the dimensions and margins of the graph
+        var width = leftSection._groups["0"]["0"].clientWidth / 2 - 0;
+        height = leftSection._groups["0"]["0"].clientHeight;
+        margin = 40;
 
+        // The radius of the pieplot is half the width or half the height (smallest one). I substract a bit of margin.
+        var radius = Math.min(width, height) / 2 - margin;
+
+        // append the svg object to the div called 'my_dataviz'
+
+        var svgWrap = d3
+          .select("#left-section")
+          .append("svg")
+          .attr("class", "svg-wrap")
+          .attr("width", 460)
+          .attr("height", height)
+          .attr("style", "float:left;");
+        svgWrap
+          .append("g")
+          .attr("transform", "translate(" + 50 + "," + 50 + ")")
+          .append("text")
+          .attr("x", 50)
+          .attr("y", 5)
+          .attr("class", "piechart-header")
+          .text("Distributor Breakdown in India");
+        var svg = svgWrap
+          .append("g")
+          .attr("transform", "translate(" + 230 + "," + 170 + ")");
+
+        var splitChart = d3
+          .select("#left-section")
+          .append("div")
+          .attr("style", `width: 450px;height:${height}px;float:left;`)
+          .attr("id", "split-chart");
+
+        var performance = splitChart
+          .append("g")
+          .attr("transform", "translate(" + 50 + "," + 50 + ")");
+        performance
+          .append("text")
+          .attr("x", 50)
+          .attr("y", 5)
+          .attr("class", "splitchart-header")
+          .text("Total Units Sales Archieved");
+        performance
+          .append("svg")
+          .attr("class", "svg-wrap text-border")
+          .attr("width", width)
+          .attr("height", height / 3)
+          .append("text")
+          .attr("x", (width - 160) / 2)
+          .attr("y", 53)
+          .attr("style", "font-size:50px;text-align:center;")
+          .text(data[selectedPerson]);
+
+        var barChart = splitChart
+          .append("div")
+          .attr("id", "revenue-chart")
+          .attr("width", width)
+          .attr("height", height / 2);
+        barChart
+          .append("g")
+          .attr("transform", "translate(" + 50 + "," + 50 + ")")
+          .append("text")
+          .attr("x", 50)
+          .attr("y", 5)
+          .attr("class", "barchart-header")
+          .text("Revenue for Breakdown")
+          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+        // Create dummy data
+        // set the color scale
+        var color = d3
+          .scaleOrdinal()
+          .domain(Object.keys(data))
+          .range(d3.schemeDark2);
+
+        // Compute the position of each group on the pie:
+        var pie = d3
+          .pie()
+          .sort(null) // Do not sort group by size
+          .value(function(d) {
+            return d.value;
+          });
+        var data_ready = pie(d3.entries(data));
+
+        // The arc generator
+        var arc = d3
+          .arc()
+          .innerRadius(radius * 0.5) // This is the size of the donut hole
+          .outerRadius(radius * 0.8);
+
+        // Another arc that won't be drawn. Just for labels positionning
+        var outerArc = d3
+          .arc()
+          .innerRadius(radius * 0.9)
+          .outerRadius(radius * 0.9);
+
+        // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
+        svg
+          .selectAll("allSlices")
+          .data(data_ready)
+          .enter()
+          .append("path")
+          .attr("d", arc)
+          .attr("fill", function(d) {
+            return color(d.data.key);
+          })
+          .attr("stroke", "white")
+          .style("stroke-width", "2px")
+          .style("opacity", 0.7);
+
+        // Add the polylines between chart and labels:
+        svg
+          .selectAll("allPolylines")
+          .data(data_ready)
+          .enter()
+          .append("polyline")
+          .attr("stroke", "black")
+          .style("fill", "none")
+          .attr("stroke-width", 1)
+          .attr("points", function(d) {
+            var posA = arc.centroid(d); // line insertion in the slice
+            var posB = outerArc.centroid(d); // line break: we use the other arc generator that has been built only for that
+            var posC = outerArc.centroid(d); // Label position = almost the same as posB
+            var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2; // we need the angle to see if the X position will be at the extreme right or extreme left
+            posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1); // multiply by 1 or -1 to put it on the right or on the left
+            return [posA, posB, posC];
+          });
+
+        // Add the polylines between chart and labels:
+        svg
+          .selectAll("allLabels")
+          .data(data_ready)
+          .enter()
+          .append("text")
+          .text(function(d) {
+            return d.data.key.toUpperCase();
+          })
+          .attr("transform", function(d) {
+            var pos = outerArc.centroid(d);
+            var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+            pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
+            return "translate(" + pos + ")";
+          })
+          .style("text-anchor", function(d) {
+            var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+            return midangle < Math.PI ? "start" : "end";
+          });
+      }
+
+      function barChart(pieData) {
+        console.log(pieData);
+        var data = pieData["products"];
+        // set the dimensions and margins of the graph
+        var margin = {
+            top: 20,
+            right: 20,
+            bottom: 30,
+            left: 40
+          },
+          width =
+            leftSection._groups["0"]["0"].clientWidth / 2 -
+            margin.left -
+            margin.right,
+          height =
+            leftSection._groups["0"]["0"].clientHeight -
+            leftSection._groups["0"]["0"].clientHeight / 3 -
+            margin.top -
+            margin.bottom;
+
+        // set the ranges
+        var x = d3
+          .scaleBand()
+          .range([0, width])
+          .padding(0.1);
+        var y = d3.scaleLinear().range([height, 0]);
+
+        // append the svg object to the body of the page
+        // append a 'group' element to 'svg'
+        // moves the 'group' element to the top left margin
+        var svg = d3
+          .select("#revenue-chart")
+          .append("svg")
+          .attr("class", "svg-wrap")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+          .attr(
+            "transform",
+            "translate(" + margin.left + "," + margin.top + ")"
+          );
+
+        // Scale the range of the data in the domains
+        x.domain(
+          data.map(function(d) {
+            return d.name;
+          })
+        );
+        y.domain([
+          0,
+          d3.max(data, function(d) {
+            return d.revenue;
+          })
+        ]);
+
+        // append the rectangles for the bar chart
+        svg
+          .selectAll(".bar")
+          .data(data)
+          .enter()
+          .append("rect")
+          .attr("class", "bar")
+          .attr("fill", function(d) {
+            return d.fill;
+          })
+          .attr("x", function(d) {
+            return x(d.name) + x.bandwidth() / 4;
+          })
+          .attr("width", x.bandwidth() / 2)
+          .attr("y", function(d) {
+            return y(d.revenue);
+          })
+          .attr("height", function(d) {
+            return height - y(d.revenue);
+          });
+
+        // add the x Axis
+        svg
+          .append("g")
+          .attr("transform", "translate(0," + height + ")")
+          .call(d3.axisBottom(x));
+
+        // add the y Axis
+        svg.append("g").call(d3.axisLeft(y));
+      }
+
+      // function lineChart(lineData) {
+      //   var data = lineData["line"];
+      //   // set the dimensions and margins of the graph
+      //   var margin = {
+      //     top: 20,
+      //     right: 20,
+      //     bottom: 30,
+      //     left: 50
+      //   },
+      //     width = deviceWidth / 2 - margin.left - margin.right,
+      //     height = deviceHeight / 2 - 50 - margin.top - margin.bottom;
+
+      //   // parse the date / time
+      //   var parseTime = d3.timeParse("%d-%b-%y");
+      //   bisectDate = d3.bisector(function (d) { return d.date; }).right;
+
+      //   // set the ranges
+      //   var x = d3.scaleTime().range([0, width]);
+      //   var y = d3.scaleLinear().range([height, 0]);
+
+      //   // define the line
+      //   var valueline = d3
+      //     .line()
+      //     .x(function (d) {
+      //       return x(d.date);
+      //     })
+      //     .y(function (d) {
+      //       return y(d.close);
+      //     })
+      //     .curve(d3.curveMonotoneX)
+
+      //   // append the svg obgect to the body of the page
+      //   // appends a 'group' element to 'svg'
+      //   // moves the 'group' element to the top left margin
+      //   var svg = d3
+      //     .select("#line-chart")
+      //     .append("svg")
+      //     .attr("class", "svg-wrap")
+      //     .attr("width", width + margin.left + margin.right)
+      //     .attr("height", height + margin.top + margin.bottom)
+      //     .append("g")
+      //     .attr(
+      //       "transform",
+      //       "translate(" + 30 + "," + 25 + ")"
+      //     );
+
+      //   // Get the data
+
+      //   // format the data
+      //   console.log(data);
+      //   data.forEach(function (d) {
+      //     d.date = parseTime(d.date);
+      //     d.close = +d.close;
+      //   });
+
+      //   // Scale the range of the data
+      //   x.domain(
+      //     d3.extent(data, function (d) {
+      //       return d.date;
+      //     })
+      //   );
+      //   y.domain([
+      //     0,
+      //     d3.max(data, function (d) {
+      //       return d.close;
+      //     })
+      //   ]);
+
+      //   // Add the valueline path.
+      //   svg
+      //     .append("path")
+      //     .data([data])
+      //     .attr("class", "line")
+      //     .attr("stroke", `${lineData["fill"]}`)
+      //     .attr("d", valueline)
+      //   console.log(typeof (data))
+
+      //   // focus
+      //   var focus = svg.append("g")
+      //     .attr("class", "focus")
+      //     .style("display", "none");
+
+      //   focus.append("line")
+      //     .attr("class", "x-hover-line hover-line")
+      //     .attr("y1", 0)
+      //     .attr("y2", height);
+
+      //   // focus.append("line")
+      //   //   .attr("class", "y-hover-line hover-line")
+      //   //   .attr("x1", width)
+      //   //   .attr("x2", width);
+
+      //   focus.append("circle")
+      //     .attr("r", 2.5);
+
+      //   focus.append("text")
+      //     .attr("x", 15)
+      //     .attr("dy", ".31em");
+
+      //   svg.append("rect")
+      //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      //     .attr("class", "overlay")
+      //     .attr("width", width)
+      //     .attr("height", height)
+      //     .on("mouseover", function () { focus.style("display", null); })
+      //     .on("mouseout", function () { focus.style("display", "none"); })
+      //     .on("mousemove", mousemove);
+
+      //   function mousemove() {
+      //     var x0 = x.invert(d3.mouse(this)[0]),
+      //       i = bisectDate(data, x0, 1),
+      //       d0 = data[i - 1],
+      //       d1 = data[i],
+      //       d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+      //     focus.attr("transform", "translate(" + x(d.date) + "," + y(d.close) + ")");
+      //     focus.select("text").text(function () { return d.close; });
+      //     focus.select(".x-hover-line").attr("y2", height - y(d.close));
+      //     focus.select(".y-hover-line").attr("x2", width + width);
+      //   }
+
+      //   // Add the X Axis
+      //   svg
+      //     .append("g")
+      //     .attr("transform", "translate(0," + height + ")")
+      //     .call(d3.axisBottom(x));
+
+      //   // Add the Y Axis
+      //   svg.append("g").call(d3.axisLeft(y));
+      // }
+
+      // function locationMap(params) {
+      //   console.log(params);
+      //   d3.select("#india-chart").attr(
+      //     "style",
+      //     `width:${w}px;height:${h}px;position:absolute;right:0;top:40px;opacity: 1;`
+      //   );
+      //   d3.selectAll(".state").attr("style", "fill:#ccc");
+
+      //   params["state"].map(item => {
+      //     var name = item.toLowerCase();
+      //     var nameSplit = name.split(" ");
+      //     var id = "";
+      //     nameSplit.map(item => {
+      //       id = id + item;
+      //     });
+      //     d3.selectAll(`.${id}`).attr("style", `fill:${params.fill}`);
+      //   });
+      // }
+    </script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-database.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyB14ay9YlrLXLJ5xX5LhX2Vd3_jAIN_-Uo",
+        authDomain: "debraversion1-vrjlpp.firebaseapp.com",
+        databaseURL: "https://debraversion1-vrjlpp.firebaseio.com",
+        projectId: "debraversion1-vrjlpp",
+        storageBucket: "debraversion1-vrjlpp.appspot.com",
+        messagingSenderId: "971719653703",
+        appId: "1:971719653703:web:de0812b596fb41fd"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      var ref = firebase.database().ref();
+
+      var db = firebase.database();
+      var ref = db.ref("data");
+      ref.on("value", function(snapshot) {
+        var inter = snapshot.val();
+        console.log(inter.text);
+        if (inter.text == "show me distributor 1 analysis") {
+          closePopup();
+          Showdistributor1("Eastindia");
+        } else if (inter.text == "show me distributor 2 analysis") {
+          Showdistributor2("Westindia");
+        }
+      });
+    </script>
+  </body>
 </html>
