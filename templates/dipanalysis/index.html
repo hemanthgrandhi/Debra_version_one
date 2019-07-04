@@ -69,6 +69,8 @@
         class="east-map"
       />
     </div>
+    <div id="eastindia"><p>East India</p></div>
+    <div id="westindia"><p>West India</p></div>
     <div id="india-chart">
       <!-- <script src="d3.v3.min.js"></sc  ript> -->
       <script src="topojson.v1.min.js"></script>
@@ -313,6 +315,8 @@
       }
 
       function Showdistributor1(company) {
+        document.getElementById("eastindia").style.display = "block";
+        document.getElementById("westindia").style.display = "none";
         var value = company;
         var objKeys = [];
         resData["0"]["products"].map(item => {
@@ -364,6 +368,8 @@
       }
 
       function Showdistributor2(company) {
+        document.getElementById("eastindia").style.display = "none";
+        document.getElementById("westindia").style.display = "block";
         var value = company;
         var objKeys = [];
         resData["0"]["products"].map(item => {

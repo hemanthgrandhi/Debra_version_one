@@ -1,182 +1,172 @@
 [
-    {
-        "agent_name": "Eastindia",
-        "products": [
-            {
-                "name": "Distributor1",
-                "revenue": 3182,
-                "fill": "#FFD100"
-            },
-            {
-                "name": "Distributor2",
-                "revenue": 868,
-                "fill": "#ED8B00"
-            },
-            {
-                "name": "Distributor3",
-                "revenue": 1808,
-                "fill": "#CEDC00"
-            },
-            {
-                "name": "Distributor4",
-                "revenue": 796,
-                "fill": "#71C5E8"
-            },
-            {
-                "name": "Distributor5",
-                "revenue": 600,
-                "fill":"#00A3AD"
-            }
-        ],
-        "line": [
-            {
-                "date": "2-Apr-12",
-                "close": 100
-            },
-            {
-                "date": "6-May-12",
-                "close": 500
-            },
-            {
-                "date": "5-Jun-12",
-                "close": 200
-            }
-        ]
-    },
-    {
-        "agent_name": "Westindia",
-        "products": [
-            {
-                "name": "Distributor1",
-                "revenue": 2182,
-                "fill":"#0E0E9A"
-            },
-            {
-                "name": "Distributor2",
-                "revenue": 768,
-                "fill":"#FFC72C"
-            },
-            {
-                "name": "Distributor3",
-                "revenue": 1000,
-                "fill":"#6BA539"
-            },
-            {
-                "name": "Distributor4",
-                "revenue": 700,
-                "fill":"#004976"
-            },
-            {
-                "name": "Distributor5",
-                "revenue": 565,
-                "fill":"#00A3AD"
-            }
-        ],
-        "line": [
-            {
-                "date": "2-Apr-12",
-                "close": 200
-            },
-            {
-                "date": "6-May-12",
-                "close": 800
-            },
-            {
-                "date": "5-Jun-12",
-                "close": 100
-            }
-        ]
-    },
-    {
-        "agent_name": "Northindia",
-        "products": [
-            {
-                "name": "Siva",
-                "revenue": 3182
-            },
-            {
-                "name": "Chandru",
-                "revenue": 868
-            },
-            {
-                "name": "Samruth",
-                "revenue": 868
-            },
-            {
-                "name": "Hemanth",
-                "revenue": 868
-            },
-            {
-                "name": "Guhan",
-                "revenue": 868
-            }
-        ],
-        "line": [
-            {
-                "date": "2-Apr-12",
-                "close": 700
-            },
-            {
-                "date": "6-May-12",
-                "close": 200
-            },
-            {
-                "date": "5-Jun-12",
-                "close": 400
-            }
-        ],
-        "fill": "#ee6aad",
-        "state": [
-            "Bihar",
-            "Himachal Pradesh",
-            "Maharashtra",
-            "Uttaranchal"
-        ]
-    },
-    {
-        "agent_name": "Southindia",
-        "products": [
-            {
-                "name": "Muthu",
-                "revenue": 3182
-            },
-            {
-                "name": "Sankar",
-                "revenue": 868
-            },
-            {
-                "name": "Sasi",
-                "revenue": 868
-            },
-            {
-                "name": "Gowtham",
-                "revenue": 868
-            },
-            {
-                "name": "Guna",
-                "revenue": 868
-            }
-        ],
-        "line": [
-            {
-                "date": "2-Apr-12",
-                "close": 800
-            },
-            {
-                "date": "6-May-12",
-                "close": 100
-            },
-            {
-                "date": "5-Jun-12",
-                "close": 500
-            }
-        ],
-        "fill": "#94c162",
-        "state": [
-            "Orissa",
-            "Andhra Pradesh",
-            "Goa",
-            "Manipur"
-        ]
-    }
+  {
+    "agent_name": "Eastindia",
+    "products": [
+      {
+        "name": "Distributor1",
+        "revenue": 3182,
+        "fill": "#FFD100"
+      },
+      {
+        "name": "Distributor2",
+        "revenue": 868,
+        "fill": "#ED8B00"
+      },
+      {
+        "name": "Distributor3",
+        "revenue": 1808,
+        "fill": "#CEDC00"
+      },
+      {
+        "name": "Distributor4",
+        "revenue": 796,
+        "fill": "#71C5E8"
+      },
+      {
+        "name": "Distributor5",
+        "revenue": 600,
+        "fill": "#00A3AD"
+      }
+    ],
+    "line": [
+      {
+        "date": "2-Apr-12",
+        "close": 100
+      },
+      {
+        "date": "6-May-12",
+        "close": 500
+      },
+      {
+        "date": "5-Jun-12",
+        "close": 200
+      }
+    ]
+  },
+  {
+    "agent_name": "Westindia",
+    "products": [
+      {
+        "name": "Distributor1",
+        "revenue": 2182,
+        "fill": "#0E0E9A"
+      },
+      {
+        "name": "Distributor2",
+        "revenue": 768,
+        "fill": "#FFC72C"
+      },
+      {
+        "name": "Distributor3",
+        "revenue": 1000,
+        "fill": "#6BA539"
+      },
+      {
+        "name": "Distributor4",
+        "revenue": 700,
+        "fill": "#004976"
+      },
+      {
+        "name": "Distributor5",
+        "revenue": 565,
+        "fill": "#00A3AD"
+      }
+    ],
+    "line": [
+      {
+        "date": "2-Apr-12",
+        "close": 200
+      },
+      {
+        "date": "6-May-12",
+        "close": 800
+      },
+      {
+        "date": "5-Jun-12",
+        "close": 100
+      }
+    ]
+  },
+  {
+    "agent_name": "Northindia",
+    "products": [
+      {
+        "name": "Siva",
+        "revenue": 3182
+      },
+      {
+        "name": "Chandru",
+        "revenue": 868
+      },
+      {
+        "name": "Samruth",
+        "revenue": 868
+      },
+      {
+        "name": "Hemanth",
+        "revenue": 868
+      },
+      {
+        "name": "Guhan",
+        "revenue": 868
+      }
+    ],
+    "line": [
+      {
+        "date": "2-Apr-12",
+        "close": 700
+      },
+      {
+        "date": "6-May-12",
+        "close": 200
+      },
+      {
+        "date": "5-Jun-12",
+        "close": 400
+      }
+    ],
+    "fill": "#ee6aad",
+    "state": ["Bihar", "Himachal Pradesh", "Maharashtra", "Uttaranchal"]
+  },
+  {
+    "agent_name": "Southindia",
+    "products": [
+      {
+        "name": "Muthu",
+        "revenue": 3182
+      },
+      {
+        "name": "Sankar",
+        "revenue": 868
+      },
+      {
+        "name": "Sasi",
+        "revenue": 868
+      },
+      {
+        "name": "Gowtham",
+        "revenue": 868
+      },
+      {
+        "name": "Guna",
+        "revenue": 868
+      }
+    ],
+    "line": [
+      {
+        "date": "2-Apr-12",
+        "close": 800
+      },
+      {
+        "date": "6-May-12",
+        "close": 100
+      },
+      {
+        "date": "5-Jun-12",
+        "close": 500
+      }
+    ],
+    "fill": "#94c162",
+    "state": ["Orissa", "Andhra Pradesh", "Goa", "Manipur"]
+  }
 ]

@@ -5,7 +5,6 @@ body {
   overflow-x: hidden;
   font-family: Arial, Helvetica, sans-serif;
 }
-
 .header {
   width: 100%;
   background: #e88d14;
@@ -13,13 +12,11 @@ body {
   display: flex;
   box-shadow: 2px 2px 2px rgba(68, 68, 68, 0.6);
 }
-
 .head-text {
   margin: 0;
   font-weight: bold;
   color: #fff;
 }
-
 .head {
   margin: 0;
   font-weight: bold;
@@ -27,7 +24,6 @@ body {
   width: 80%;
   text-align: center;
 }
-
 .user {
   width: 30px;
   height: 30px;
@@ -36,7 +32,6 @@ body {
   top: 10px;
   border-radius: 50px;
 }
-
 .notification {
   width: 25px;
   height: 25px;
@@ -45,7 +40,6 @@ body {
   top: 12px;
   border-radius: 50px;
 }
-
 .circle {
   position: absolute;
   right: 19px;
@@ -60,19 +54,16 @@ body {
   color: #fff;
   line-height: 1.4;
 }
-
 .line {
   fill: none;
   stroke-width: 2px;
 }
-
 #india {
   /*    fill: #00BCD4;
     opacity: .7; */
   stroke: #101010;
   stroke-width: 0.6;
 }
-
 div.tooltip {
   position: absolute;
   text-align: center;
@@ -84,20 +75,16 @@ div.tooltip {
   pointer-events: none;
   box-shadow: 0px 0px 2px 0px #a6a6a6;
 }
-
 .key path {
   display: none;
 }
-
 .key line {
   stroke: #000;
   shape-rendering: crispEdges;
 }
-
 .key text {
   font-size: 10px;
 }
-
 .key rect {
   stroke-width: 0.4;
 }
@@ -109,33 +96,27 @@ div.tooltip {
   left: 35%;
   text-align: center;
 }
-
 #line-chart {
   position: relative;
 }
-
 /* .svg-wrap{
       border:1px solid black;
       box-shadow: 0px 1px 0px 1px solid black;
   } */
-
 .overlay {
   fill: none;
   pointer-events: all;
 }
-
 .focus circle {
   fill: #f1f3f3;
   stroke: #6f257f;
   stroke-width: 5px;
 }
-
 .hover-line {
   stroke: #6f257f;
   stroke-width: 2px;
   stroke-dasharray: 3, 3;
 }
-
 .east-map {
   position: absolute;
   right: 5px;
@@ -148,7 +129,6 @@ div.tooltip {
   width: 34%;
   top: 20em;
 }
-
 #overlay {
   /* we set all of the properties for are overlay */
   height: 80%;
@@ -172,7 +152,6 @@ div.tooltip {
   /* width: 0px; */
   background: transparent;
 }
-
 #mask {
   /* create are mask */
   position: fixed;
@@ -222,9 +201,7 @@ div.tooltip {
   -o-border-radius: 10px;
   border-radius: 10px;
 }
-
 /* Issue Report */
-
 .dip-text-wrap {
   font-size: 1.5rem;
   width: 100%;
@@ -250,9 +227,8 @@ div#competitors-chart {
 #pieChart svg {
   position: absolute;
   top: -40px;
-  right: 0;
+  /* right: 0; */
 }
-
 .chart-header {
   color: #000;
   font-size: 1rem;
@@ -267,28 +243,23 @@ div#competitors-chart {
   justify-content: center;
 }
 div#pieChart {
-  position: absolute;
-  left: 44em;
-  top: 3em;
+  position: relative;
+  top: 1em;
   z-index: 1111;
+  right: -2em;
 }
-
 /*Tree Diagram*/
-
 .node {
   cursor: pointer;
 }
-
 .node circle {
   fill: #fff;
   stroke: steelblue;
   stroke-width: 3px;
 }
-
 .node text {
   font: 12px sans-serif;
 }
-
 .link {
   fill: none;
   stroke: #ccc;
@@ -299,7 +270,6 @@ div#pieChart {
   top: 0;
   right: 0;
 }
-
 div#tree-diagram {
   position: relative;
   /* float: left; */
@@ -348,11 +318,7 @@ p.para-text {
   width: 100%;
   padding-right: 25px;
   padding-left: 25px;
-<<<<<<< HEAD
   color: white;
-=======
-  color:white;
->>>>>>> e99555369ef61ecf599b5df0d6664175705bda28
 }
 p.para-text1 {
   position: absolute;
@@ -364,22 +330,18 @@ p.para-text1 {
 .tree-diagram-div {
   margin-top: 1em;
 }
-
 .piechart-header {
   font-size: 20px;
   font-weight: bold;
 }
-
 .barchart-header {
   font-weight: bold;
   font-size: 20px;
 }
-
 .splitchart-header {
   font-size: 20px;
   font-weight: bold;
 }
-
 .text-border {
   height: 70px;
   background: white;
@@ -391,7 +353,6 @@ p.para-text1 {
 #revenue-chart {
   text-align: center;
 }
-
 #linechart-header {
   display: none;
   position: absolute;
@@ -405,4 +366,12 @@ p.para-text1 {
   border: none;
   top: 5px;
   outline: none;
+}
+#eastindia,
+#westindia {
+  display: none;
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  font-size: 50px;
 }
