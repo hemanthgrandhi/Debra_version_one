@@ -68,7 +68,7 @@ var processWindows = require("node-process-windows");
 
 //listen for the app to be ready
 app.on("ready", function() {
-  createWindow();
+  //createWindow();
   console.log("Electron is up and running!");
 });
 
@@ -189,7 +189,7 @@ function addWindow(pageurl, screenNumber) {
   let externalDisplay = displays.find(display => {
     return display.bounds.x !== 0 || display.bounds.y !== 0;
   });
-  console.log(typeof screenNumber);
+  //console.log(typeof screenNumber);
   if (screenNumber == null || screenNumber == 1) {
     newWindow = new BrowserWindow({
       webPreferences: {
@@ -239,13 +239,13 @@ function addWindow(pageurl, screenNumber) {
   }
 }
 
-//get the dipanalysis page
+//get the action items page
 function getWindow1(screenNumber) {
   let displays = electron.screen.getAllDisplays();
   let externalDisplay = displays.find(display => {
     return display.bounds.x !== 0 || display.bounds.y !== 0;
   });
-  console.log(typeof screenNumber);
+  //console.log(typeof screenNumber);
   if (screenNumber == null || screenNumber == 1) {
     getWindow = new BrowserWindow({
       webPreferences: {
@@ -298,13 +298,13 @@ function getWindow1(screenNumber) {
   }
 }
 
-//get the action items page
+//get the dip analysis page
 function getWindow2(screenNumber) {
   let displays = electron.screen.getAllDisplays();
   let externalDisplay = displays.find(display => {
     return display.bounds.x !== 0 || display.bounds.y !== 0;
   });
-  console.log(typeof screenNumber);
+  //console.log(typeof screenNumber);
   if (screenNumber == null || screenNumber == 1) {
     getWindow = new BrowserWindow({
       webPreferences: {

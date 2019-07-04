@@ -230,6 +230,7 @@ div.tooltip {
   width: 100%;
   font-weight: bold;
   color: #000;
+  padding: 5px;
   text-align: center;
 }
 #pieChart {
@@ -244,7 +245,7 @@ div#competitors-chart {
   width: 100%;
   height: 32vh;
   flex-flow: wrap;
-  background: #eeeeee50;
+  background: #d9d5d5;
 }
 #pieChart svg {
   position: absolute;
@@ -261,13 +262,13 @@ div#competitors-chart {
   /* margin: auto; */
   position: relative;
   display: flex;
-  top: 2em;
+  top: 1em;
   align-items: center;
   justify-content: center;
 }
 div#pieChart {
   position: absolute;
-  right: -4em;
+  left: 44em;
   top: 3em;
   z-index: 1111;
 }
@@ -340,18 +341,19 @@ div#tree-diagram {
   align-items: center;
   justify-content: center;
   display: none;
-  background-color: lightgoldenrodyellow;
+  background-color: #a2a29a;
 }
 p.para-text {
   position: relative;
   width: 100%;
   padding-right: 25px;
   padding-left: 25px;
+  color: white;
 }
 p.para-text1 {
   position: absolute;
   top: -10px;
-  left: 2em;
+  left: 0.5em;
   font-size: 1rem;
   color: #000;
 }
@@ -398,5 +400,5 @@ p.para-text1 {
   border-radius: 25px;
   border: none;
   top: 5px;
+  outline: none;
 }
-

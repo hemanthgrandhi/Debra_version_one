@@ -10,7 +10,6 @@ html {
 .wrapper {
   width: 100%;
 }
-
 .container1 {
   width: 100%;
   background: #f3ecec;
@@ -21,7 +20,6 @@ html {
   justify-content: center;
   align-items: center; */
 }
-
 .container2 {
   width: 100%;
   background: #f4f4f4;
@@ -32,7 +30,6 @@ html {
   justify-content: center;
   align-items: center; */
 }
-
 .container3 {
   width: 100%;
   background: lightblue;
@@ -43,18 +40,15 @@ html {
   justify-content: center;
   align-items: center; */
 }
-
 .instruct-content {
   width: 80%;
   float: left;
 }
-
 .current-chart {
   width: 56%;
   float: left;
   margin-left: 33px;
 }
-
 .action {
   font-size: 20px;
   width: 31%;
@@ -65,28 +59,27 @@ html {
   width: 20%;
   float: left;
 }
-
-.actions{
-  width: 100%;
+.actions {
+  width: 99%;
   float: left;
   text-align: center;
   background: white;
-  height: 72vh;
+  height: 74vh;
+  border: 1px solid;
 }
-
 .action-item1 {
   width: 100%;
   float: left;
   text-align: center;
   background: white;
-  height: 72vh;
+  height: 63vh;
 }
 .action-item2 {
   width: 100%;
   float: left;
   text-align: center;
   background: white;
-  height: 72vh;
+  height: 63vh;
   display: none;
 }
 .action-item3 {
@@ -94,7 +87,7 @@ html {
   float: left;
   text-align: center;
   background: white;
-  height: 72vh;
+  height: 63vh;
   display: none;
 }
 .pending-img {
@@ -110,19 +103,17 @@ html {
   margin-right: 16px;
   margin-top: 3em;
 }
-
 .actions h2 {
   font-size: 20px;
   font-weight: normal;
+  position: relative;
 }
-
 .head {
   text-transform: capitalize;
   float: left;
   font-size: 20px;
   margin-top: 16px;
 }
-
 button.offers {
   margin: 0;
   padding: 0;
@@ -132,7 +123,6 @@ button.offers {
   float: left;
   cursor: pointer;
 }
-
 button.offer1 {
   width: 110px;
   background-color: #4caf50;
@@ -144,7 +134,6 @@ button.offer1 {
   font-size: 14px;
   border-radius: 5px;
 }
-
 button.offer2 {
   width: 110px;
   background-color: blue;
@@ -156,7 +145,6 @@ button.offer2 {
   font-size: 14px;
   border-radius: 5px;
 }
-
 button.offer3 {
   width: 110px;
   background-color: red;
@@ -168,19 +156,16 @@ button.offer3 {
   font-size: 14px;
   border-radius: 5px;
 }
-
 .header {
   width: 100%;
   float: left;
 }
-
 p.one {
   width: 2%;
   float: left;
   margin-left: 10px;
   font-size: 18px;
 }
-
 .button1 {
   margin-top: 2em;
   text-align: center;
@@ -214,7 +199,6 @@ p.one {
   float: left;
   display: none;
 }
-
 .content {
   width: 20%;
   float: left;
@@ -222,25 +206,21 @@ p.one {
   margin-left: 36px;
   margin-top: 3em;
 }
-
 .image {
   width: 25%;
   float: left;
   margin-left: 20px;
 }
-
 .chart {
   width: 50%;
   float: left;
 }
-
 .chart1 {
   width: 78%;
   float: left;
   padding: 15px;
   background: #fff;
 }
-
 .one {
   width: 18%;
   float: left;
@@ -261,7 +241,6 @@ p.one {
   margin-top: 10px;
   width: 91%;
 }
-
 .image1 img {
   width: 75%;
   margin-left: 24px;
@@ -272,7 +251,6 @@ p.one {
   width: 100%;
   float: left;
 }
-
 .content p {
   width: 90%;
   text-align: left;
@@ -306,17 +284,15 @@ p.one {
 }
 #myChart5 {
   display: block !important;
-    width: 693px !important;
-    height: 390px !important;
+  width: 693px !important;
+  height: 390px !important;
 }
-
 .footer img {
   width: 3%;
   float: right;
   margin: 22px 28px;
   cursor: pointer;
 }
-
 .notification {
   width: 20%;
   float: right;
@@ -325,7 +301,6 @@ p.one {
   -webkit-transition: margin-top 2s;
   margin-top: -90px;
 }
-
 .notification p {
   width: 90%;
   background: white;
@@ -337,12 +312,10 @@ p.one {
 .content-view {
   padding-left: 4em;
 }
-
 .map-view {
   width: 32%;
   float: left;
 }
-
 .content-view p {
   width: 73%;
   float: left;
@@ -350,18 +323,130 @@ p.one {
   padding: 10px;
   text-align: left;
 }
-
 .image-view {
   width: 100%;
   float: left;
 }
-
 .image-view img {
   width: 67%;
   margin-left: 4em;
-  height: 277px;
+  height: 216px;
 }
 .chart-view {
   width: 40%;
   float: left;
+}
+.loader {
+  position: absolute;
+  top: 6em;
+  right: 102px;
+  display: none;
+}
+.loader2 {
+  position: absolute;
+  margin-top: 9em;
+  right: 102px;
+  display: none;
+}
+.loader3 {
+  position: absolute;
+  margin-top: 6em;
+  right: 102px;
+  display: none;
+}
+/* #loader2 {
+  position: absolute;
+  top: 6em;
+  right: 102px;
+  display: none;
+}
+#loader3 {
+  position: absolute;
+  top: 6em;
+  right: 102px;
+  display: none;
+} */
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 32px 32px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #004f9e;
+  margin: -3px 0 0 -3px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 50px;
+  left: 50px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 54px;
+  left: 45px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 57px;
+  left: 39px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 58px;
+  left: 32px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 57px;
+  left: 25px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 54px;
+  left: 19px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 50px;
+  left: 14px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 45px;
+  left: 10px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
