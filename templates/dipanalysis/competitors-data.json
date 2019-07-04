@@ -1,4 +1,5 @@
 [
+<<<<<<< HEAD
   {
     "name": "Decrease",
     "percentage": 400
@@ -11,4 +12,18 @@
     "name": "Competitor 1,2,3",
     "percentage": 2400
   }
+=======
+    {
+        "name": "Decrease",
+        "percentage": 400
+    },
+    {
+        "name": "US",
+        "percentage": 1200
+    },
+    {
+        "name": "Competitor 1,2,3",
+        "percentage": 2400
+    }
+>>>>>>> e99555369ef61ecf599b5df0d6664175705bda28
 ]

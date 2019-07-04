@@ -348,7 +348,11 @@ p.para-text {
   width: 100%;
   padding-right: 25px;
   padding-left: 25px;
+<<<<<<< HEAD
   color: white;
+=======
+  color:white;
+>>>>>>> e99555369ef61ecf599b5df0d6664175705bda28
 }
 p.para-text1 {
   position: absolute;
