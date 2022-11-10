@@ -9,7 +9,7 @@
   "author": "Hemanth Grandhi",
   "license": "ISC",
   "dependencies": {
-    "electron": "^5.0.2",
+    "electron": "^18.3.7",
     "socket.io": "^2.2.0"
   }
 }
